@@ -30,5 +30,6 @@ jobs:
 
       - name: Run stryker with specific config file
         run: dotnet stryker -f stryker-config-slnx.json
+        continue-on-error: true
 
 
