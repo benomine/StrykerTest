@@ -24,3 +24,11 @@ jobs:
 
       - name: Run Stryker
         run: dotnet stryker
+
+      - name: Run stryker with specific xunit version
+        run: XUNIT_PACKAGE_ID=xunit XUNIT_PACKAGE_VERSION=2.9.3 XUNIT_IS_TESTING_PLATFORM=false dotnet stryker
+
+      - name: Run stryker with specific config file
+        run: dotnet stryker -f stryker-config-slnx.json
+
+
