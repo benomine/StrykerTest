@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable Central Package Management -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+
+    <!-- Allow overriding via MSBuild -p: or environment variables. Defaults to xunit.v3 -->
+    <XunitPackageId Condition="'$(XunitPackageId)'=='' and '$(XUNIT_PACKAGE_ID)'!=''">$(XUNIT_PACKAGE_ID)</XunitPackageId>
+    <XunitPackageId Condition="'$(XunitPackageId)'==''">xunit.v3</XunitPackageId>
+
+    <!-- Control testing platform (default true for xunit.v3). Can be overridden via XUNIT_IS_TESTING_PLATFORM env var or -p:IsTestingPlatformApplication=value -->
+    <IsTestingPlatformApplication Condition="'$(IsTestingPlatformApplication)'=='' and '$(XUNIT_IS_TESTING_PLATFORM)'!=''">$(XUNIT_IS_TESTING_PLATFORM)</IsTestingPlatformApplication>
+    <IsTestingPlatformApplication Condition="'$(IsTestingPlatformApplication)'==''">true</IsTestingPlatformApplication>
+    <UseMicrosoftTestingPlatformRunner Condition="'$(IsTestingPlatformApplication)'=='' and '$(XUNIT_IS_TESTING_PLATFORM)'!=''">$(XUNIT_IS_TESTING_PLATFORM)</UseMicrosoftTestingPlatformRunner>
+    <UseMicrosoftTestingPlatformRunner Condition="'$(IsTestingPlatformApplication)'==''">true</UseMicrosoftTestingPlatformRunner>
+  </PropertyGroup>
+</Project>
