@@ -11,6 +11,6 @@
         "test-projects": [
             "tests/Console1.Tests/Console1.Tests.csproj"
         ],
-        "solution": "../StrykerTest.slnx"
+        "solution": "./StrykerTest.slnx"
     }
 }
